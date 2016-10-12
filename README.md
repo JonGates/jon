@@ -28,9 +28,9 @@ jon 是一款LINUX系统攻防工具箱，包含扫描，入侵，痕迹清理�
 jon v 0.1 for linux
 Copyright (C) 2003 by jon <2182619@qq.com>
 
-jon [-f utmp_filename] -u username ip               hide username from ip in utmp file
-jon [-f wtmp_filename] -w username ip               hide username from ip in wtmp file
-jon [-f lastlog_filename] -m username ip ttyname YYYY[:MM[:DD[:hh[:mm[:ss]]]]]  modify lastlog info
+jon [-f utmpfile] -u username ip               hide username from ip in utmp file
+jon [-f wtmpfile] -w username ip               hide username from ip in wtmp file
+jon [-f lastlogfile] -m username ip ttyname YYYY[:MM[:DD[:hh[:mm[:ss]]]]]  modify lastlog info
 ```
 
 #### -f 选项：用于指定要修改的文件的路径的，是个可选项。由于不同系统的日志存放路径不一样，可以手工指定。
@@ -52,7 +52,7 @@ root     pts/2    192.168.1.8     20:06    0.00s  0.13s  0.00s w
 root     pts/4    192.168.1.8     20:21    5:52   0.03s  0.03s -bash
 
 我们是从192.168.1.8机器连上来的，现在隐藏下：
-[root@localhost jon]# jon -h root 192.168.1.8
+[root@localhost jon]# jon -u root 192.168.1.8
 [root@localhost jon]# w
  21:27:46 up 5 days, 13:48,  1 user,  load average: 0.00, 0.00, 0.00
 USER     TTY      FROM            LOGIN@   IDLE   JCPU   PCPU WHAT
